@@ -32,6 +32,7 @@
                                 &kp LSHFT      &kp Z    &kp X    &kp C       &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT  &kp SLASH &mt RSHFT RET
                                 &kp C_PP       &kp LGUI &kp LALT &mo CONTROL &mo LOWER &kp SPACE &kp SPACE &mo RAISE &kp LEFT  &kp DOWN &kp UP    &kp RIGHT
 			>;
+                        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
     lower {

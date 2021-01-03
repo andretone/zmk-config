@@ -12,87 +12,87 @@
 #define DEFAULT 0
 #define LOWER 1
 #define RAISE 2
-#define ADJUST 3
-#define CONTROL 4
+#define FUNCT 3
+#define ADJUST 4
 
 / {
-	keymap {
-		compatible = "zmk,keymap";
+  keymap {
+    compatible = "zmk,keymap";
 
-		default_layer {
-                                        // default layer, querty style
-                                        // -----------------------------------------------------------------------------------------
-                                        // |  TAB  |  Q   |  W   |  E   |  R   |  T   |   Y   |  U    |  I   |  O   |   P   |  `    |
-                                        // |CTL/ESC|  A   |  S   |  D   |  F   |  G   |   H   |  J    |  K   |  L   |   ;   |  '    |
-                                        // | SHIFT |  Z   |  X   |  C   |  V   |  B   |   N   |  M    |  ,   |  .   |   /   |SHF/RET|
-                                        // |  PP  | LGUI | LALT | LCTL | LOWR |SPACE | SPACE |  RAIS | LARW | DARW | UARW  |  RARW |
-			bindings = <
-                                &kp TAB        &kp Q    &kp W    &kp E       &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O    &kp P     &kp GRAVE
-                                &mt LCTRL ESC  &kp A    &kp S    &kp D       &kp F     &kp G     &kp H     &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
-                                &kp LSHFT      &kp Z    &kp X    &kp C       &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT  &kp SLASH &mt RSHFT RET
-                                &kp C_PP       &kp LGUI &kp LALT &mo CONTROL &mo LOWER &kp SPACE &kp SPACE &mo RAISE &kp LEFT  &kp DOWN &kp UP    &kp RIGHT
-			>;
-                        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
+    default_layer {
+      // default layer, querty style
+      // -----------------------------------------------------------------------------------------
+      // |  TAB  |  Q   |  W   |  E   |  R   |  T   |   Y   |  U    |  I   |  O   |   P   |  `    |
+      // |CTL/ESC|  A   |  S   |  D   |  F   |  G   |   H   |  J    |  K   |  L   |   ;   |  '    |
+      // | SHIFT |  Z   |  X   |  C   |  V   |  B   |   N   |  M    |  ,   |  .   |   /   |SHF/RET|
+      // |  PP  | LGUI | LALT | LCTL | LOWR |SPACE | SPACE |  RAIS | LARW | DARW | UARW  |  RARW |
+      bindings = <
+        &kp TAB        &kp Q    &kp W    &kp E       &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O    &kp P     &kp GRAVE
+        &mt LCTRL ESC  &kp A    &kp S    &kp D       &kp F     &kp G     &kp H     &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
+        &kp LSHFT      &kp Z    &kp X    &kp C       &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT  &kp SLASH &mt RSHFT RET
+        &kp C_PP       &kp LGUI &kp LALT &mo FUNCT   &mo LOWER &kp SPACE &kp SPACE &mo RAISE &kp LEFT  &kp DOWN &kp UP    &kp RIGHT
+      >;
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+    };
 
     lower {
-                                        // lower layer, probably used for simbols
-                                        // -----------------------------------------------------------------------------------------
-                                        // |       |  1   |  2   |  3   |  4   |  5   |   6   |  7    |  8   |  9   |   0   |  INS  |
-                                        // |       |      |      |      |      |      |       |  -    |  =   |  [   |   ]   |  \    |
-                                        // |       |      |      |      |      |      |       |       |      |      |       |       |
-                                        // |       |      |      |      | LOWR | BSPC |  DEL  |  ADJ  | HOME | PDWN | PUP   |  END  |
-			bindings = <
-                                &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5   &kp N6   &kp N7       &kp N8       &kp N9    &kp N0    &kp INS
-                                &trans &trans &trans &trans &trans &trans   &trans   &kp MINUS    &kp EQUAL    &kp LBKT  &kp RBKT  &kp BSLH
-                                &trans &trans &trans &trans &trans &trans   &trans   &trans       &trans       &trans    &trans    &trans
-                                &trans &trans &trans &trans &trans &kp BSPC &kp DEL  &mo ADJUST   &kp HOME     &kp PG_UP &kp PG_DN &kp END
-			>;
+      // lower layer, probably used for simbols
+      // -----------------------------------------------------------------------------------------
+      // |       |  1   |  2   |  3   |  4   |  5   |   6   |  7    |  8   |  9   |   0   |  INS  |
+      // |       |      |      |      |      |      |       |  -    |  =   |  [   |   ]   |  \    |
+      // |       |      |      |      |      |      |       |       |      |      |       |       |
+      // |       |      |      |      | LOWR | BSPC |  DEL  |  ADJ  | HOME | PDWN | PUP   |  END  |
+      bindings = <
+        &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5   &kp N6   &kp N7       &kp N8       &kp N9    &kp N0    &kp INS
+        &trans &trans &trans &trans &trans &trans   &trans   &kp MINUS    &kp EQUAL    &kp LBKT  &kp RBKT  &kp BSLH
+        &trans &trans &trans &trans &trans &trans   &trans   &trans       &trans       &trans    &trans    &trans
+        &trans &trans &trans &trans &trans &kp BSPC &kp DEL  &mo ADJUST   &kp HOME     &kp PG_DN &kp PG_UP &kp END
+      >;
     };
 
     raise {
-                                       // raise layer, probably used for simbols
-                                       // -----------------------------------------------------------------------------------------
-                                       // |       |  !   |  @   |  #   |  $   |  %   |   ^   |  &    |  *   |  (   |   )   |       |
-                                       // |       |      |      |      |      |      |       |  _    |  +   |  {   |   }   |   |   |
-                                       // |       |      |      |      |      |      |       |       |      |      |       |       |
-                                       // |       |      |      |      | LOWR | BSPC |  DEL  |  ADJ  |      |      |       |       |
-			bindings = <
-                                &kp LS(GRAVE) &kp LS(N1) &kp LS(N2) &kp LS(N3) &kp LS(N4) &kp LS(N5) &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &trans
-                                &trans        &trans     &trans     &trans     &trans     &trans     &trans     &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC   &kp PIPE
-                                &trans        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
-                                &trans        &trans     &trans     &trans     &mo ADJUST &kp BSPC   &kp DEL    &trans     &trans     &trans     &trans     &trans
-    	>;
+      // raise layer, probably used for simbols
+      // -----------------------------------------------------------------------------------------
+      // |       |  !   |  @   |  #   |  $   |  %   |   ^   |  &    |  *   |  (   |   )   |       |
+      // |       |      |      |      |      |      |       |  _    |  +   |  {   |   }   |   |   |
+      // |       |      |      |      |      |      |       |       |      |      |       |       |
+      // |       |      |      |      | LOWR | BSPC |  DEL  |  ADJ  |      |      |       |       |
+      bindings = <
+        &kp LS(GRAVE) &kp LS(N1) &kp LS(N2) &kp LS(N3) &kp LS(N4) &kp LS(N5) &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &trans
+        &trans        &trans     &trans     &trans     &trans     &trans     &trans     &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC   &kp PIPE
+        &trans        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+        &trans        &trans     &trans     &trans     &mo ADJUST &kp BSPC   &kp DEL    &trans     &trans     &trans     &trans     &trans
+      >;
+    };
+
+    funct {
+      // funct layer, probably used for F#, navigation and media commands
+      // -----------------------------------------------------------------------------------------
+      // |       |  F1  |  F2  |  F3  |  F4  |  F5  |   F6  |  F7   |  F8  |  F9  |  F10  |       |
+      // |       |  F11 |  F12 |      |      |      |       |       |      |      |       |       |
+      // |       |      |      |      |      |      |       |       |      |      |       |       |
+      // | MUTE  |      |      |      |      | PLAY | PAUSE |       | PREV | VOLUP| VOLDWN| NEXT  |
+      bindings = <
+        &trans     &kp F1  &kp F2  &kp F3 &kp F4 &kp F5     &kp F6      &kp F7    &kp F8     &kp F9       &kp F10      &trans
+        &trans     &kp F11 &kp F12 &trans &trans &trans     &kp LEFT    &kp DOWN  &kp UP     &kp RIGHT    &trans       &trans
+        &trans     &trans  &trans  &trans &trans &trans     &kp HOME    &kp PG_DN &kp PG_UP  &kp ENDs      &trans       &trans
+        &kp C_MUTE &trans  &trans  &trans &trans &kp C_PLAY &kp C_PAUSE &trans    &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT
+      >;
     };
 
     adjust {
-                                       // rise layer, probably used for F# and media commands
-                                       // -----------------------------------------------------------------------------------------
-                                       // |       |  F1  |  F2  |  F3  |  F4  |  F5  |   F6  |  F7   |  F8  |  F9  |  F10  |       |
-                                       // |       |  F11 |  F12 |      |      |      |       |       |      |      |       |       |
-                                       // |       |      |      |      |      |      |       |       |      |      |       |       |
-                                       // | MUTE  |      |      |      |      | PLAY | PAUSE |       | PREV | VOLUP| VOLDWN| NEXT  |
-                        bindings = <
-                                &trans     &kp F1  &kp F2  &kp F3 &kp F4 &kp F5     &kp F6      &kp F7 &kp F8     &kp F9       &kp F10      &trans
-                                &trans     &kp F11 &kp F12 &trans &trans &trans     &trans      &trans &trans     &trans       &trans       &trans
-                                &trans     &trans  &trans  &trans &trans &trans     &trans      &trans &trans     &trans       &trans       &trans
-                                &kp C_MUTE &trans  &trans  &trans &trans &kp C_PLAY &kp C_PAUSE &trans &kp C_PREV &kp C_VOL_UP &kp C_VOL_DN &kp C_NEXT
-                        >;
-    };
-
-    control {
-    // control layer, probably used keyboard and bluetooth commands
-    // -----------------------------------------------------------------------------------------
-    // |RESET  |      |      |      |      |      |       |       |      |      |       | BT_CLR|
-    // |BOOTLD |      |      |      |      |      |       |       |      |      |       |       |
-    // |       |      |      |      |      |      |       |       |      |      |       |       |
-    // |OUT_TOG|      |      |      |      |      |       |       |BT_PRV|      |       | BT_NXT|
-			bindings = <
-                                &reset       &trans &trans &trans &trans &trans &trans &trans &trans     &trans &trans &bt BT_CLR
-                                &bootloader  &trans &trans &trans &trans &trans &trans &trans &trans     &trans &trans &trans
-                                &trans       &trans &trans &trans &trans &trans &trans &trans &trans     &trans &trans &trans
-                                &out OUT_TOG &trans &trans &trans &trans &trans &trans &trans &bt BT_PRV &trans &trans &bt BT_NXT
-                        >;
+      // control layer, probably used keyboard and bluetooth commands
+      // -----------------------------------------------------------------------------------------
+      // |RESET  | BL_0 | BL_1 | BL_2 | BL_3 | BL_4 |       |       |      |      |       | BT_CLR|
+      // |BOOTLD |      |      |      |      |      |       |       |      |      |       |       |
+      // |       |      |      |      |      |      |       |       |      |      |       |       |
+      // |OUT_TOG|      |      |      |      |      |       |       |      |      |       |       |
+      bindings = <
+        &reset       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none &none  &none &none &none &bt BT_CLR
+        &bootloader  &none        &none        &none        &none        &none        &none &none  &none &none &none &none
+        &none        &none        &none        &none        &none        &none        &none &none  &none &none &none &none
+        &out OUT_TOG &none        &none        &trans       &trans       &none        &none &trans &none &none &none &none
+      >;
     };
   };
 };
